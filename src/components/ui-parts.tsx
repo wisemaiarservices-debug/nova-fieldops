@@ -1,6 +1,14 @@
 import type { ReactNode } from "react";
 
-export function SectionHeading({ eyebrow, title, description }: { eyebrow?: string; title: string; description?: string }) {
+export function SectionHeading({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+}) {
   return (
     <div className="mb-8">
       {eyebrow && <div className="hud-label mb-2 text-primary">{eyebrow}</div>}
@@ -15,8 +23,17 @@ export function Panel({ children, className = "" }: { children: ReactNode; class
 }
 
 export function StatusDot({ tone = "ok" }: { tone?: "ok" | "warn" | "err" | "info" }) {
-  const c = tone === "ok" ? "bg-primary" : tone === "warn" ? "bg-yellow-400" : tone === "err" ? "bg-destructive" : "bg-accent";
-  return <span className={`inline-block h-2 w-2 rounded-full ${c} shadow-[0_0_10px_currentColor]`} />;
+  const c =
+    tone === "ok"
+      ? "bg-primary"
+      : tone === "warn"
+        ? "bg-yellow-400"
+        : tone === "err"
+          ? "bg-destructive"
+          : "bg-accent";
+  return (
+    <span className={`inline-block h-2 w-2 rounded-full ${c} shadow-[0_0_10px_currentColor]`} />
+  );
 }
 
 export function Badge({ children }: { children: ReactNode }) {
