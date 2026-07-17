@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import { reportAppError } from "../lib/app-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -21,7 +21,10 @@ function NotFoundComponent() {
         <p className="mt-2 text-sm text-muted-foreground">
           This coordinate is not on the mission grid.
         </p>
-        <Link to="/" className="mt-6 inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90">
+        <Link
+          to="/"
+          className="mt-6 inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
+        >
           Return to base
         </Link>
       </div>
@@ -32,16 +35,28 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportAppError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center panel p-8">
         <h1 className="text-xl font-semibold text-foreground">System interrupt</h1>
-        <p className="mt-2 text-sm text-muted-foreground">The console encountered an unexpected fault.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The console encountered an unexpected fault.
+        </p>
         <div className="mt-6 flex justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">Retry</button>
-          <a href="/" className="rounded-md border border-border px-4 py-2 text-sm">Home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+          >
+            Retry
+          </button>
+          <a href="/" className="rounded-md border border-border px-4 py-2 text-sm">
+            Home
+          </a>
         </div>
       </div>
     </div>
@@ -53,11 +68,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NOVA FieldOps — GenAI Mission Planning for Agricultural Robots" },
-      { name: "description", content: "NOVA FieldOps turns natural-language field instructions into safe, structured, operator-approved robot missions for agricultural robotics." },
+      { title: "NOVA FieldOps - GenAI Mission Planning for Agricultural Robots" },
+      {
+        name: "description",
+        content:
+          "NOVA FieldOps turns natural-language field instructions into safe, structured, operator-approved robot missions for agricultural robotics.",
+      },
       { name: "author", content: "NeoHaven AI Urban Labs" },
-      { property: "og:title", content: "NOVA FieldOps — GenAI Mission Planning for Agricultural Robots" },
-      { property: "og:description", content: "GenAI mission-planning layer for agricultural robots. Human-in-the-loop, safety-validated, operator-approved." },
+      {
+        property: "og:title",
+        content: "NOVA FieldOps - GenAI Mission Planning for Agricultural Robots",
+      },
+      {
+        property: "og:description",
+        content:
+          "Challenge-focused mission-planning layer for agricultural robots. Human-in-the-loop, scenario-tested, operator-approved.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -66,7 +92,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -78,8 +107,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head><HeadContent /></head>
-      <body>{children}<Scripts /></body>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }
@@ -107,7 +141,7 @@ function Header() {
           </div>
           <div className="leading-tight">
             <div className="font-display text-sm font-semibold tracking-wide">NOVA FieldOps</div>
-            <div className="hud-label text-[9px]">NeoHaven · NOVA OS</div>
+            <div className="hud-label text-[9px]">NeoHaven / NOVA OS</div>
           </div>
         </Link>
         <nav className="hidden lg:flex items-center gap-1">
@@ -116,7 +150,10 @@ function Header() {
               key={n.to}
               to={n.to}
               className="rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:text-foreground hover:bg-secondary/60"
-              activeProps={{ className: "rounded-md px-3 py-1.5 text-xs font-medium text-primary bg-secondary/80" }}
+              activeProps={{
+                className:
+                  "rounded-md px-3 py-1.5 text-xs font-medium text-primary bg-secondary/80",
+              }}
               activeOptions={{ exact: true }}
             >
               {n.label}
@@ -125,7 +162,7 @@ function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <span className="hidden md:flex items-center gap-1.5 rounded-full border border-border px-2.5 py-1 hud-label">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" /> Live
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" /> PoC
           </span>
         </div>
       </div>
@@ -139,19 +176,31 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-10 grid gap-8 md:grid-cols-3">
         <div>
           <div className="font-display font-semibold">NeoHaven AI Urban Labs</div>
-          <div className="hud-label mt-1">NOVA OS · NeoAgro · NOVA FieldOps</div>
+          <div className="hud-label mt-1">NOVA OS / NeoAgro / NOVA FieldOps</div>
           <p className="mt-3 text-sm text-muted-foreground max-w-xs">
             Operator-approved decision intelligence. No autonomous physical execution.
           </p>
         </div>
         <div className="text-sm">
           <div className="hud-label mb-2">Contact</div>
-          <a className="block hover:text-primary" href="mailto:wisemaiarservices@gmail.com">wisemaiarservices@gmail.com</a>
-          <a className="block hover:text-primary" href="https://neohaven-nova-os-website.vercel.app/" target="_blank" rel="noreferrer">neohaven-nova-os-website.vercel.app</a>
+          <a className="block hover:text-primary" href="mailto:wisemaiarservices@gmail.com">
+            wisemaiarservices@gmail.com
+          </a>
+          <a
+            className="block hover:text-primary"
+            href="https://neohaven-nova-os-website.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            neohaven-nova-os-website.vercel.app
+          </a>
         </div>
         <div className="text-sm">
           <div className="hud-label mb-2">Safety</div>
-          <p className="text-muted-foreground">Civil agricultural applications only. Missions require explicit operator approval before execution.</p>
+          <p className="text-muted-foreground">
+            Civil agricultural applications only. Missions require explicit operator approval before
+            execution.
+          </p>
         </div>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
@@ -167,7 +216,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1"><Outlet /></main>
+        <main className="flex-1">
+          <Outlet />
+        </main>
         <Footer />
       </div>
     </QueryClientProvider>

@@ -2,42 +2,86 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, Panel, SectionHeading } from "@/components/ui-parts";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({ meta: [
-    { title: "Challenge Fit — NOVA FieldOps" },
-    { name: "description", content: "How NOVA FieldOps addresses AI-BOOST Challenge 1: GenAI-based natural-language mission generation for autonomous agricultural robots." },
-    { property: "og:title", content: "Challenge Fit — NOVA FieldOps" },
-    { property: "og:description", content: "GenAI-based natural-language mission generation for autonomous robots in agriculture." },
-  ] }),
-  component: About,
+  head: () => ({
+    meta: [
+      { title: "AI-BOOST Challenge 1 Fit - NOVA FieldOps" },
+      {
+        name: "description",
+        content:
+          "How NOVA FieldOps fits AI-BOOST Challenge 1 as a challenge-focused PoC for natural-language agricultural robot mission generation.",
+      },
+      { property: "og:title", content: "AI-BOOST Challenge 1 Fit - NOVA FieldOps" },
+      {
+        property: "og:description",
+        content:
+          "Challenge-focused PoC extension of NOVA OS / NeoAgro for operator-approved agricultural robot mission generation.",
+      },
+    ],
+  }),
+  component: ChallengeFit,
 });
 
-const sections: { t: string; d: string }[] = [
-  { t: "Problem", d: "Agricultural robots remain hard to deploy: field intent lives in operator language, but robot fleets consume rigid mission definitions. Translation is manual, brittle, and unsafe." },
-  { t: "Solution", d: "NOVA FieldOps is a GenAI mission-planning layer that parses natural-language field instructions, aligns them with spatial and temporal context, validates safety, and exports structured mission plans for approved execution." },
-  { t: "Technical approach", d: "LLM-driven intent extraction · zone-aware planner · rule-based and heuristic safety validators · deterministic mission schema · signed operator approval · integration hooks to NOVA OS and partner fleets." },
-  { t: "Responsible AI", d: "Human-in-the-loop by design. No autonomous physical execution. Explicit assumption and missing-data surfacing. Civil agricultural applications only. Full audit trail per mission." },
-  { t: "Spark Phase plan", d: "Deliver a working mission generator, safety validator, and structured export. Validate on vineyard, irrigation, and infrastructure scenarios with operator user studies." },
-  { t: "Advance Phase plan", d: "Integrate with live NOVA OS fleets, extend planner with multi-robot coordination, add continuous field-context ingestion (weather, soil, imagery), and expand scenario library across crops and geographies." },
-];
+export const challengeFitSections = [
+  {
+    title: "Problem",
+    body: "Agricultural robots require structured mission definitions, while farm operators often express intent in natural language. Converting field instructions into safe, auditable robot plans is still manual, inconsistent, and difficult to govern.",
+  },
+  {
+    title: "Proposed Solution",
+    body: "NOVA FieldOps turns natural-language agricultural instructions into structured mission plans with explicit constraints, safety checks, missing-data warnings, and required operator approval before any downstream execution.",
+  },
+  {
+    title: "Technical Approach",
+    body: "The PoC combines intent extraction, mission decomposition, zone-aware planning, deterministic JSON output, safety gate evaluation, and human approval status. It is designed to plug into NOVA OS / NeoAgro workflows without claiming live robot-fleet integration.",
+  },
+  {
+    title: "Responsible AI",
+    body: "The system keeps humans in control, flags assumptions, surfaces missing data, blocks autonomous physical execution by design, and limits use to civil agricultural applications.",
+  },
+  {
+    title: "Spark Phase Plan",
+    body: "The Spark Phase would support development of the first focused mission-generation PoC: refined prompts, structured schema outputs, scenario workflows, safety gate logic, and operator review screens.",
+  },
+  {
+    title: "Advance Phase Plan",
+    body: "The Advance Phase would support integration-ready adapters, expanded crop and field scenarios, deeper geospatial context, controlled simulation testing, and a field-validation pathway with agricultural robotics partners.",
+  },
+  {
+    title: "Expected Outputs",
+    body: "Expected outputs include a mission generator, scenario library, safety validator, structured mission schema, operator review workflow, mission output examples, and documentation for responsible use.",
+  },
+  {
+    title: "Why NeoHaven",
+    body: "NeoHaven AI Urban Labs is building NOVA OS and NeoAgro around decision intelligence for sustainable infrastructure and agriculture, making NOVA FieldOps a focused extension of an existing product architecture.",
+  },
+] as const;
 
-function About() {
+export function ChallengeFit() {
   return (
     <PageShell>
-      <SectionHeading eyebrow="About · Challenge Fit" title="AI-BOOST Challenge 1" description="GenAI-Based Natural Language Mission Generator for Autonomous Robots in Agriculture." />
+      <SectionHeading
+        eyebrow="AI-BOOST Challenge 1"
+        title="AI-BOOST Challenge 1 Fit"
+        description="GenAI-Based Natural Language Mission Generator for Autonomous Robots in Agriculture."
+      />
 
       <Panel className="border-l-4 border-l-primary">
-        <div className="hud-label text-primary">Challenge fit</div>
-        <p className="mt-2 text-foreground/90">
-          NOVA FieldOps directly addresses the challenge objective of translating natural-language agricultural instructions into structured robot mission plans. It combines GenAI, field context, mission decomposition, safety validation, human approval, and structured mission export.
+        <div className="hud-label text-primary">Current stage</div>
+        <p className="mt-2 text-foreground/90 leading-relaxed">
+          NOVA FieldOps is a challenge-focused PoC extension of NOVA OS / NeoAgro. It has not yet
+          been field-validated with agricultural robots. The Spark Phase would support development
+          of the first focused mission-generation PoC.
         </p>
       </Panel>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
-        {sections.map((s, i) => (
-          <Panel key={s.t}>
-            <div className="hud-label">0{i + 1}</div>
-            <h3 className="mt-1 font-display text-xl font-semibold text-primary">{s.t}</h3>
-            <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{s.d}</p>
+        {challengeFitSections.map((section, index) => (
+          <Panel key={section.title}>
+            <div className="hud-label">{String(index + 1).padStart(2, "0")}</div>
+            <h3 className="mt-1 font-display text-xl font-semibold text-primary">
+              {section.title}
+            </h3>
+            <p className="mt-2 text-sm text-foreground/85 leading-relaxed">{section.body}</p>
           </Panel>
         ))}
       </div>
@@ -46,17 +90,24 @@ function About() {
         <Panel>
           <div className="hud-label">Product family</div>
           <div className="mt-2 font-display text-lg">NOVA OS</div>
-          <p className="text-sm text-muted-foreground">Operating layer for decision intelligence across NeoHaven products.</p>
+          <p className="text-sm text-muted-foreground">
+            Decision intelligence architecture across NeoHaven product pillars.
+          </p>
         </Panel>
         <Panel>
           <div className="hud-label">Vertical</div>
           <div className="mt-2 font-display text-lg">NeoAgro</div>
-          <p className="text-sm text-muted-foreground">Agricultural intelligence stack — field context, crop analytics, robotics.</p>
+          <p className="text-sm text-muted-foreground">
+            Agricultural intelligence stack for field context, scenario workflows, and
+            recommendations.
+          </p>
         </Panel>
         <Panel>
           <div className="hud-label">This product</div>
           <div className="mt-2 font-display text-lg text-primary">NOVA FieldOps</div>
-          <p className="text-sm text-muted-foreground">GenAI mission-planning layer for agricultural robots.</p>
+          <p className="text-sm text-muted-foreground">
+            Operator-approved mission generation for agricultural robot planning.
+          </p>
         </Panel>
       </div>
     </PageShell>

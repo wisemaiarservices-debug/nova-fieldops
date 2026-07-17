@@ -1,10 +1,5 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# NOVA FieldOps Repository Notes
+
+NOVA FieldOps is a challenge-focused PoC extension of NOVA OS / NeoAgro for AI-BOOST Challenge 1.
+
+Keep changes incremental and preserve the Vite/TanStack setup. Do not claim field validation, production deployment, or autonomous physical execution. Public-facing copy should emphasize operator-approved mission generation, civil agricultural applications, and no autonomous physical execution without human approval.

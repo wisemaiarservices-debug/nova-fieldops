@@ -15,6 +15,7 @@ import { Route as MissionReviewRouteImport } from './routes/mission-review'
 import { Route as MissionOutputRouteImport } from './routes/mission-output'
 import { Route as MissionGeneratorRouteImport } from './routes/mission-generator'
 import { Route as FieldMapRouteImport } from './routes/field-map'
+import { Route as ChallengeFitRouteImport } from './routes/challenge-fit'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -48,6 +49,11 @@ const FieldMapRoute = FieldMapRouteImport.update({
   path: '/field-map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengeFitRoute = ChallengeFitRouteImport.update({
+  id: '/challenge-fit',
+  path: '/challenge-fit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -62,6 +68,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/challenge-fit': typeof ChallengeFitRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/challenge-fit': typeof ChallengeFitRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/challenge-fit': typeof ChallengeFitRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/challenge-fit'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/challenge-fit'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/challenge-fit'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ChallengeFitRoute: typeof ChallengeFitRoute
   FieldMapRoute: typeof FieldMapRoute
   MissionGeneratorRoute: typeof MissionGeneratorRoute
   MissionOutputRoute: typeof MissionOutputRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FieldMapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenge-fit': {
+      id: '/challenge-fit'
+      path: '/challenge-fit'
+      fullPath: '/challenge-fit'
+      preLoaderRoute: typeof ChallengeFitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ChallengeFitRoute: ChallengeFitRoute,
   FieldMapRoute: FieldMapRoute,
   MissionGeneratorRoute: MissionGeneratorRoute,
   MissionOutputRoute: MissionOutputRoute,
@@ -208,3 +229,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
