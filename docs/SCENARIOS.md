@@ -1,6 +1,6 @@
 # NOVA FieldOps Scenarios
 
-These scenarios are examples for AI-BOOST Challenge 1 evaluation. They are scenario workflows, not field-validated robot deployments.
+These scenarios are product-preview workflows for NOVA FieldOps. They are scenario workflows, not field-validated robot deployments.
 
 ## Vineyard Water-Stress Inspection
 

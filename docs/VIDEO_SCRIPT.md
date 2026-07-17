@@ -6,15 +6,13 @@ Hello, I'm Wael Abessi, founder of NeoHaven AI Urban Labs.
 
 This is NOVA FieldOps, a GenAI mission-planning layer for agricultural robots and field operations.
 
-It is designed for AI-BOOST Challenge 1: GenAI-Based Natural Language Mission Generator for Autonomous Robots in Agriculture.
-
-The problem is simple: agricultural operators think in natural field language, but robots need structured missions, constraints, maps, task steps, and safety checks.
+The problem is simple: agricultural operators think in natural field language, but robots and robotic workflows need structured missions, constraints, maps, task steps, and safety checks.
 
 For example, an operator can say:
 
 "Inspect the north vineyard rows for water stress, avoid wet zones, prioritize high-risk areas, and return to base before sunset."
 
-NOVA FieldOps converts this instruction into a structured mission intent.
+NOVA FieldOps converts this instruction into structured mission intent.
 
 It identifies the task type, target zone, objective, constraints, priority, and approval requirement.
 
@@ -30,8 +28,6 @@ The system does not perform autonomous physical execution. It generates operator
 
 Finally, NOVA FieldOps exports a structured mission output that can be adapted to robotic middleware, simulators, or partner robot systems.
 
-The goal of the Spark Phase is to turn this into a focused Proof of Concept for vineyard and agricultural field operations, then validate it with challenge-owner feedback during the Advance Phase.
-
 NOVA FieldOps makes agricultural robotics more accessible by turning human field intent into safe, structured, operator-approved robot missions.
 
 ## Route-by-Route Recording Plan
@@ -43,7 +39,7 @@ NOVA FieldOps makes agricultural robotics more accessible by turning human field
 5. Scroll to mission plan and read the operator-review sequence.
 6. Scroll to safety validation and emphasize missing-data warnings, human approval, and disabled autonomous execution.
 7. Scroll to structured mission output and show the JSON export.
-8. End on AI-BOOST fit and the Spark Phase candidate positioning.
+8. End on the product value section and product overview page.
 
 ## Safety Message
 

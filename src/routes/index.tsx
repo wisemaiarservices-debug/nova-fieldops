@@ -54,7 +54,7 @@ function Home() {
               to="/about"
               className="rounded-md border border-border bg-secondary/40 px-5 py-3 font-semibold hover:bg-secondary transition"
             >
-              View Challenge Fit
+              View Product Overview
             </Link>
           </div>
 

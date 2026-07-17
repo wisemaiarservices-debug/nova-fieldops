@@ -4,13 +4,11 @@ NOVA FieldOps turns natural-language agricultural instructions into safe, struct
 
 ## Overview
 
-NOVA FieldOps is a focused NeoHaven AI Urban Labs product extension of NOVA OS / NeoAgro. It supports AI-BOOST Challenge 1: GenAI-Based Natural Language Mission Generator for Autonomous Robots in Agriculture.
+NOVA FieldOps is a GenAI mission-planning layer for agricultural robots and field operations. It is a focused NeoHaven AI Urban Labs product extension of NOVA OS / NeoAgro.
 
-This repository contains a challenge-focused PoC application. It does not claim field validation, real robot deployment, or production use.
+The product helps agricultural operators convert plain-language field intent into structured mission plans with field context, constraints, safety validation, human review, and integration-ready structured outputs.
 
-## AI-BOOST Challenge 1 Fit
-
-The product addresses the challenge need for transforming operator language into structured mission plans for agricultural robots. The workflow emphasizes safety, operator approval, missing-data warnings, and civil agricultural use.
+This repository may support accelerator or pilot applications, but the product is presented as a standalone NeoHaven platform.
 
 ## Product Workflow
 
@@ -24,7 +22,8 @@ Observe field intent -> analyze constraints -> generate mission intent -> valida
 - Safety validator
 - Structured mission output
 - Scenario workflows
-- AI-BOOST Challenge Fit page
+- Video-ready product demo
+- Product overview page
 
 ## Safety Principles
 
@@ -38,11 +37,12 @@ Observe field intent -> analyze constraints -> generate mission intent -> valida
 
 ## Current Stage
 
-NOVA FieldOps is a challenge-focused PoC extension of NOVA OS / NeoAgro. It has not yet been field-validated with agricultural robots. The Spark Phase would support development of the first focused mission-generation PoC.
+NOVA FieldOps is a product-preview and PoC-ready extension of NOVA OS / NeoAgro. It is designed for scenario workflows, operator review, safety validation, and integration-ready structured mission outputs. Field validation and partner integrations are part of the next deployment pathway.
 
 ## Routes
 
 - `/`
+- `/demo`
 - `/mission-generator`
 - `/field-map`
 - `/mission-review`
@@ -50,7 +50,7 @@ NOVA FieldOps is a challenge-focused PoC extension of NOVA OS / NeoAgro. It has 
 - `/mission-output`
 - `/scenarios`
 - `/about`
-- `/challenge-fit`
+- `/challenge-fit` renders the neutral product overview content for compatibility.
 
 ## Development Commands
 
@@ -67,7 +67,7 @@ Equivalent npm commands can be used in environments where npm is available.
 
 ## Repository Status
 
-The repository contains the extracted source project at the root. The previous ZIP-only artifact has been removed. Current work is scoped to product cleanup, challenge positioning, documentation, and build verification.
+The repository contains the extracted source project at the root. The previous ZIP-only artifact has been removed. Current work is scoped to product cleanup, public product positioning, documentation, and build verification.
 
 ## Contact
 

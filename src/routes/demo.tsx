@@ -62,7 +62,7 @@ function Demo() {
       <section className="relative overflow-hidden rounded-none border-b border-border/50 pb-8">
         <div className="flex flex-wrap items-center gap-2">
           <Badge>Video-ready walkthrough</Badge>
-          <Badge>AI-BOOST Challenge 1</Badge>
+          <Badge>Product demo</Badge>
           <Badge>Operator-approved</Badge>
         </div>
         <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-6xl">
@@ -83,7 +83,7 @@ function Demo() {
             to="/about"
             className="rounded-md border border-border bg-secondary/40 px-5 py-3 font-semibold transition hover:bg-secondary"
           >
-            Challenge Fit
+            Product Overview
           </Link>
         </div>
       </section>
@@ -201,17 +201,13 @@ function Demo() {
       </section>
 
       <section className="mt-14">
-        <SectionHeading eyebrow="Section 7" title="AI-BOOST fit" />
+        <SectionHeading eyebrow="Section 7" title="Product value" />
         <Panel className="border-l-4 border-l-primary">
           <p className="max-w-4xl text-base leading-7 text-muted-foreground">
-            NOVA FieldOps directly addresses AI-BOOST Challenge 1 by translating natural-language
-            agricultural instructions into structured mission plans, while adding field context,
-            safety validation, human approval, and structured export.
-          </p>
-          <p className="mt-4 max-w-4xl text-base leading-7 text-muted-foreground">
-            The product remains a challenge-focused PoC / Spark Phase candidate. It does not claim
-            field validation, live robot deployment, production use, or autonomous physical
-            execution.
+            NOVA FieldOps helps agricultural operators translate plain-language field intent into
+            structured mission plans. The workflow connects mission intent, field context, safety
+            validation, human approval, and structured export so agricultural robotics workflows
+            become more accessible, explainable, and operator-controlled.
           </p>
         </Panel>
       </section>

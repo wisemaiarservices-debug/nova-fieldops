@@ -1,6 +1,6 @@
 # NOVA FieldOps Deployment
 
-NOVA FieldOps is intended to deploy as a static Vite/TanStack web application for challenge review and video recording.
+NOVA FieldOps is intended to deploy as a static Vite/TanStack web application for product review and video recording.
 
 ## Vercel Settings
 
@@ -18,7 +18,7 @@ NOVA FieldOps is intended to deploy as a static Vite/TanStack web application fo
 
 ## Notes
 
-- Keep the app public-facing and challenge-focused.
+- Keep the app public-facing and product-first.
 - Do not add API keys, database credentials, or backend requirements.
 - Do not describe the product as field-validated, deployed with live robots, or production-ready.
 - Use the `/demo` route for product video recording.
