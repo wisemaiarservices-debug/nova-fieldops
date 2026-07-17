@@ -15,6 +15,7 @@ import { Route as MissionReviewRouteImport } from './routes/mission-review'
 import { Route as MissionOutputRouteImport } from './routes/mission-output'
 import { Route as MissionGeneratorRouteImport } from './routes/mission-generator'
 import { Route as FieldMapRouteImport } from './routes/field-map'
+import { Route as DemoRouteImport } from './routes/demo'
 import { Route as ChallengeFitRouteImport } from './routes/challenge-fit'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +50,11 @@ const FieldMapRoute = FieldMapRouteImport.update({
   path: '/field-map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChallengeFitRoute = ChallengeFitRouteImport.update({
   id: '/challenge-fit',
   path: '/challenge-fit',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/challenge-fit': typeof ChallengeFitRoute
+  '/demo': typeof DemoRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/challenge-fit': typeof ChallengeFitRoute
+  '/demo': typeof DemoRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/challenge-fit': typeof ChallengeFitRoute
+  '/demo': typeof DemoRoute
   '/field-map': typeof FieldMapRoute
   '/mission-generator': typeof MissionGeneratorRoute
   '/mission-output': typeof MissionOutputRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/challenge-fit'
+    | '/demo'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/challenge-fit'
+    | '/demo'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/challenge-fit'
+    | '/demo'
     | '/field-map'
     | '/mission-generator'
     | '/mission-output'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ChallengeFitRoute: typeof ChallengeFitRoute
+  DemoRoute: typeof DemoRoute
   FieldMapRoute: typeof FieldMapRoute
   MissionGeneratorRoute: typeof MissionGeneratorRoute
   MissionOutputRoute: typeof MissionOutputRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FieldMapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenge-fit': {
       id: '/challenge-fit'
       path: '/challenge-fit'
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ChallengeFitRoute: ChallengeFitRoute,
+  DemoRoute: DemoRoute,
   FieldMapRoute: FieldMapRoute,
   MissionGeneratorRoute: MissionGeneratorRoute,
   MissionOutputRoute: MissionOutputRoute,
