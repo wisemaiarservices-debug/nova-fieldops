@@ -1,10 +1,12 @@
-# AI-BOOST Challenge 1
+# Internal Application Notes
 
-## Challenge Selected
+Internal application support note. Do not use this text on public product pages.
 
-AI-BOOST Challenge 1: GenAI-Based Natural Language Mission Generator for Autonomous Robots in Agriculture.
+## Context
 
-## NOVA FieldOps Concept
+NOVA FieldOps can support accelerator, pilot, and partner conversations that require a focused explanation of natural-language agricultural mission generation. This file is internal support material only.
+
+## Product Concept
 
 NOVA FieldOps turns natural-language agricultural instructions into safe, structured, operator-approved robot mission plans. It is a focused product extension of NOVA OS / NeoAgro.
 
@@ -25,16 +27,13 @@ NOVA FieldOps parses natural-language agricultural instructions into mission int
 - Structured JSON mission output
 - Operator review before downstream use
 
-## Spark Phase Work Plan
+## Product Development Pathway
 
 - Refine the natural-language mission generator
 - Expand scenario workflows for common agricultural operations
 - Strengthen deterministic mission schema output
 - Improve safety-gate explanations and missing-data warnings
 - Prepare operator review screens for usability testing
-
-## Advance Phase Work Plan
-
 - Build integration-ready adapters for NOVA OS / NeoAgro workflows
 - Add richer geospatial and crop-context inputs
 - Expand scenario coverage across crops and field types
@@ -58,8 +57,8 @@ NOVA FieldOps parses natural-language agricultural instructions into mission int
 - Operator review flow
 - Structured JSON mission schema
 - Mission output examples
-- Documentation for responsible challenge evaluation
+- Documentation for responsible product evaluation
 
 ## Current Stage and Honest Limitations
 
-NOVA FieldOps is a challenge-focused PoC extension of NOVA OS / NeoAgro. It has not yet been field-validated with agricultural robots. It should be evaluated as a Spark Phase candidate and not as a production robotics deployment.
+NOVA FieldOps is a product-preview and PoC-ready extension of NOVA OS / NeoAgro. It has not yet been field-validated with agricultural robots and should not be described as a production robotics deployment.
