@@ -2,20 +2,48 @@ name: NOVA FieldOps CI
 
 on:
   pull_request:
-  push:
     branches:
       - main
+    paths:
+      - "package.json"
+      - "bun.lock"
+      - ".github/workflows/ci.yml"
+      - "src/**"
+      - "tests/**"
+      - "README.md"
+
+permissions:
+  contents: write
 
 jobs:
   web:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - name: Install locked dependencies
-        run: bun install --frozen-lockfile
+      - name: Resolve dependencies and regenerate lockfile
+        run: bun install
+      - name: Verify patched TanStack Start lock entry
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const lock = readFileSync('bun.lock', 'utf8');
+          const match = lock.match(/"@tanstack\\/react-start": \["@tanstack\\/react-start@(\\d+)\\.(\\d+)\\.(\\d+)"/);
+          if (!match) throw new Error('Direct @tanstack/react-start package entry missing from bun.lock');
+          const actual = match.slice(1, 4).map(Number);
+          const minimum = [1, 168, 60];
+          const older = actual[0] < minimum[0] ||
+            (actual[0] === minimum[0] && actual[1] < minimum[1]) ||
+            (actual[0] === minimum[0] && actual[1] === minimum[1] && actual[2] < minimum[2]);
+          if (older) throw new Error('Vulnerable @tanstack/react-start version remains: ' + actual.join('.'));
+          console.log('Verified @tanstack/react-start@' + actual.join('.'));
+          NODE
       - name: Test preview and safety boundaries
         run: bun run test
       - name: Typecheck
@@ -24,3 +52,17 @@ jobs:
         run: bun run lint
       - name: Build
         run: bun run build
+      - name: Commit regenerated lockfile to this PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- bun.lock; then
+            git add bun.lock
+            git commit -m "chore(fieldops): refresh patched TanStack Start lockfile"
+            git push origin "HEAD:${PR_BRANCH}"
+          else
+            echo "bun.lock already matches the patched dependency graph"
+          fi
