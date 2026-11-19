@@ -45,6 +45,9 @@ jobs:
           if (older) throw new Error('Vulnerable @tanstack/react-start version remains: ' + actual.join('.'));
           console.log('Verified @tanstack/react-start@' + actual.join('.'));
           NODE
+      - name: Format changed source and regression tests
+        run: |
+          ./node_modules/.bin/prettier --write src/components/ui-parts.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
       - name: Test preview and safety boundaries
         run: bun run test
       - name: Typecheck
@@ -60,10 +63,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet -- bun.lock; then
-            git add bun.lock
-            git commit -m "chore(fieldops): refresh patched TanStack Start lockfile"
+          if ! git diff --quiet; then
+            git add bun.lock src/components/ui-parts.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
+            git commit -m "chore(fieldops): refresh lockfile and format preview safeguards"
             git push origin "HEAD:${PR_BRANCH}"
           else
-            echo "bun.lock already matches the patched dependency graph"
+            echo "Lockfile and preview safeguards are already current"
           fi
