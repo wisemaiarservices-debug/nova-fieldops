@@ -64,7 +64,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
-            git add bun.lock src/components/ui-parts.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
+            git add bun.lock src/routeTree.gen.ts src/components/ui-parts.tsx src/routes/__root.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
             git commit -m "chore(fieldops): refresh lockfile and format preview safeguards"
             git push origin "HEAD:${PR_BRANCH}"
           else
