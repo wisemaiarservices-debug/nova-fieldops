@@ -31,7 +31,7 @@ test('Safety checks are sample content and do not grant mission clearance', () =
   assert.match(safety, /not live checks, sensor readings, a certified assessment/);
   assert.match(safety, /Not assessed/);
   assert.match(checks, /Sample: pass/);
-  assert.match(checks, /Example route fixture; not map-validated/);
+  assert.match(checks, /Illustrative route fixture; not map-validated/);
 });
 
 test('Mission generator and output remain preview-only', () => {
