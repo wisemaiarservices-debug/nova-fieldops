@@ -25,6 +25,12 @@ const stats = [
 function Home() {
   return (
     <div>
+      <div role="status" aria-label="Demo data notice" className="mx-auto max-w-7xl px-6 pt-6">
+        <div className="rounded-md border border-yellow-400/40 bg-yellow-400/10 px-4 py-3 text-sm text-foreground/90">
+          <strong className="mr-2 text-yellow-400 tracking-widest">DEMO SCENARIO</strong>
+          <span>Static sample workflow only · no robot, field sensor, weather feed or approval service is connected · no mission is executed</span>
+        </div>
+      </div>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
