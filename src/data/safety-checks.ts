@@ -1,40 +1,40 @@
 export const safetyChecks = [
   {
     label: "Restricted zone avoidance",
-    status: "Passed",
+    status: "Sample: pass",
     tone: "ok",
-    note: "1 restricted zone routed around",
+    note: "Illustrative route fixture; not map-validated",
   },
   {
     label: "Weather risk",
-    status: "Moderate",
+    status: "Sample: moderate",
     tone: "warn",
-    note: "Wind gusts forecast late window",
+    note: "Example weather note; no forecast feed connected",
   },
   {
     label: "Battery requirement",
     status: "Passed",
     tone: "ok",
-    note: "Estimated 62% remaining on return",
+    note: "Example battery estimate; no robot telemetry connected",
   },
   {
     label: "Terrain risk",
-    status: "Low",
+    status: "Sample: low",
     tone: "ok",
-    note: "Grade below 6 degrees, service track available",
+    note: "Example terrain note; no surveyed terrain data connected",
   },
-  { label: "Human approval", status: "Required", tone: "warn", note: "Awaiting operator sign-off" },
+  { label: "Human approval", status: "Sample: required", tone: "warn", note: "No approval workflow connected" },
   {
     label: "Missing data",
-    status: "Attention",
+    status: "Sample: attention",
     tone: "warn",
-    note: "Latest soil moisture reading unavailable",
+    note: "No field sensor feed connected",
   },
   {
     label: "Autonomous execution",
-    status: "Disabled",
+    status: "Design note: disabled",
     tone: "err",
-    note: "No autonomous physical execution permitted",
+    note: "Physical execution integration is not connected",
   },
 ] as const satisfies {
   label: string;
