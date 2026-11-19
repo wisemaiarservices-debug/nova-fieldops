@@ -76,3 +76,10 @@ NeoHaven AI Urban Labs
 Website: https://neohaven-nova-os-website.vercel.app/
 
 Email: wisemaiarservices@gmail.com
+
+
+## Runtime and safety boundary
+
+The current FieldOps UI is a static scenario preview. Mission steps, assumptions, field-map zones, safety-check statuses, sensor/weather/battery notes, and structured mission output are hard-coded examples. The mission-generator form does not parse the entered text or call an AI/backend service. The safety matrix is not a live environmental or robot check, site certification, or authorization to operate.
+
+The mission-review Approve and Request changes controls are intentionally unavailable because no durable approval service is connected. Mission output is a schema example marked `preview_only`, not an approved or dispatchable robot command. No robot, field sensor, weather feed, NOVA Core private tenant gateway, partner robot stack, or physical actuation path is connected. Do not use this preview to plan or execute real-world robot operations.
