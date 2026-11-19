@@ -5,7 +5,7 @@ export const missionSchemaExample = {
   constraints: ["avoid_wet_zones", "return_before_sunset"],
   priority: "high_risk_areas",
   approval_required: true,
-  execution_mode: "operator_approved",
+  execution_mode: "preview_only",
 };
 
 export const missionSchemaFields = [
@@ -15,5 +15,5 @@ export const missionSchemaFields = [
   { field: "constraints", purpose: "Lists limits such as restricted zones or time windows." },
   { field: "priority", purpose: "Captures operator prioritization for routing and review." },
   { field: "approval_required", purpose: "Requires human approval before downstream use." },
-  { field: "execution_mode", purpose: "Keeps output in operator-approved mode only." },
+  { field: "execution_mode", purpose: "Marks this example as preview-only; downstream systems must refuse execution." },
 ] as const;
