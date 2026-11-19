@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import type { ErrorComponentProps } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { reportAppError } from "../lib/app-error-reporting";
@@ -32,10 +33,13 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
   useEffect(() => {
-    reportAppError(error, { boundary: "tanstack_root_error_component" });
+    reportAppError(
+      error instanceof Error ? error : new Error(String(error)),
+      { boundary: "tanstack_root_error_component" },
+    );
   }, [error]);
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
