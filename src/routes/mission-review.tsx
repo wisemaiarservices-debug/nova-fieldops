@@ -66,7 +66,7 @@ function Review() {
                     sample estimate: {2 + i} min / not safety-validated
                   </div>
                 </div>
-                <StatusDot tone={i === steps.length - 1 ? "info" : "ok"} />
+                <StatusDot tone="info" />
               </li>
             ))}
           </ol>
