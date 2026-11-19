@@ -15,7 +15,7 @@ const readme = read('../README.md');
 
 test('FieldOps pages persistently identify static demo scenarios', () => {
   assert.match(shell, /DEMO SCENARIO/);
-  assert.match(shell, /no robot, field sensor, weather feed or approval service is connected/);
+  assert.match(shell, /no robot, field sensor, weather feed\\s+or approval service is connected/);
   assert.match(home, /DEMO SCENARIO/);
 });
 
