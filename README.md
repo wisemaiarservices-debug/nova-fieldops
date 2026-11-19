@@ -88,3 +88,6 @@ The mission-review Approve and Request changes controls are intentionally unavai
 ## TanStack security baseline
 
 The app pins a compatible patched TanStack release set: `@tanstack/react-start@1.168.60`, `@tanstack/react-router@1.170.41`, and `@tanstack/router-plugin@1.168.42`. These versions must be upgraded as a coordinated package family, not by independently floating React Start to a newer release while leaving its Router/Start transitive dependencies behind. CI regenerates `bun.lock`, verifies the fixed React Start version, and runs tests, typecheck, lint, and production build before committing lockfile changes to this PR.
+
+
+The generated route tree is checked in. If TanStack's build-time route generation changes it, commit that generated output together with the source change so the validated source tree and repository state remain reproducible.
