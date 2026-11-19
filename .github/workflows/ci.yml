@@ -47,7 +47,7 @@ jobs:
           NODE
       - name: Format changed source and regression tests
         run: |
-          ./node_modules/.bin/prettier --write src/components/ui-parts.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
+          ./node_modules/.bin/prettier --write src/components/ui-parts.tsx src/routes/__root.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
       - name: Test preview and safety boundaries
         run: bun run test
       - name: Typecheck
