@@ -4,11 +4,11 @@ import { Badge, Panel, StatusDot } from "@/components/ui-parts";
 export const Route = createFileRoute("/")({ component: Home });
 
 const badges = [
-  "GenAI Mission Planning",
-  "Agricultural Robotics",
+  "Mission Planning Preview",
+  "Agricultural Robotics Workflow",
   "Human-in-the-Loop",
-  "Safety Validation",
-  "Structured Mission Output",
+  "Safety Checklist Preview",
+  "Structured Sample Output",
 ];
 
 const stats = [
@@ -42,11 +42,10 @@ function Home() {
             NOVA <span className="text-primary">FieldOps</span>
           </h1>
           <p className="mt-4 font-display text-xl md:text-2xl text-foreground/90">
-            GenAI Mission Planning for Agricultural Robots
+            Mission Planning Preview for Agricultural Robotics
           </p>
           <p className="mt-4 max-w-2xl text-muted-foreground text-lg">
-            Turn natural-language field instructions into safe, structured, operator-approved robot
-            missions.
+            Explore a sample workflow for translating field instructions into structured mission intent, review steps and safety constraints.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -73,9 +72,9 @@ function Home() {
           <div className="mt-14 grid gap-4 lg:grid-cols-3">
             <Panel className="lg:col-span-2">
               <div className="flex items-center justify-between">
-                <div className="hud-label">Mission Console / PoC scenario</div>
+                <div className="hud-label">Illustrative Mission Console / Static fixture</div>
                 <div className="flex items-center gap-1.5 hud-label">
-                  <StatusDot tone="ok" /> scenario-ready
+                  <StatusDot tone="ok" /> sample only
                 </div>
               </div>
               <pre className="mt-4 overflow-x-auto rounded-md bg-background/60 border border-border p-4 text-xs leading-relaxed">
@@ -94,14 +93,14 @@ function Home() {
               <div className="hud-label">System status</div>
               <ul className="mt-3 space-y-3 text-sm">
                 <li className="flex items-center justify-between">
-                  <span>Parser</span>
+                  <span>Parser example</span>
                   <span className="flex items-center gap-2">
                     <StatusDot />
-                    PoC-ready
+                    sample flow
                   </span>
                 </li>
                 <li className="flex items-center justify-between">
-                  <span>Safety validator</span>
+                  <span>Safety checklist</span>
                   <span className="flex items-center gap-2">
                     <StatusDot />
                     PoC-ready
@@ -178,13 +177,13 @@ function Home() {
             <div>
               <div className="font-semibold">Operator-approved</div>
               <div className="text-sm text-muted-foreground">
-                Missions never execute without explicit human sign-off.
+                No mission execution is connected in this preview.
               </div>
             </div>
             <div>
               <div className="font-semibold">No autonomous physical execution</div>
               <div className="text-sm text-muted-foreground">
-                NOVA FieldOps plans and validates. Robots act only after approval.
+                Future integrations must independently validate conditions and require explicit operator authorization.
               </div>
             </div>
             <div>
