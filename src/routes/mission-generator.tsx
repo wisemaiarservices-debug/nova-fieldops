@@ -47,7 +47,7 @@ function Generator() {
       <SectionHeading
         eyebrow="Mission Generator"
         title="Describe the field intent"
-        description="Enter natural-language instructions. NOVA FieldOps extracts task, target, constraints, and priorities into a structured, operator-approved plan."
+        description="Edit the example inputs and inspect a fixed sample intent. This preview does not parse your text or call an AI/backend service."
       />
 
       <div className="grid gap-6 lg:grid-cols-5">
@@ -116,7 +116,7 @@ function Generator() {
               onClick={() => setGenerated(true)}
               className="rounded-md bg-primary px-5 py-2.5 font-semibold text-primary-foreground glow-primary"
             >
-              Generate mission intent
+              Show sample intent
             </button>
             <button
               onClick={() => setGenerated(false)}
@@ -129,10 +129,10 @@ function Generator() {
 
         <Panel className="lg:col-span-2">
           <div className="flex items-center justify-between">
-            <div className="hud-label text-primary">Generated mission intent</div>
+            <div className="hud-label text-primary">Illustrative sample intent</div>
             <span className="flex items-center gap-1.5 hud-label">
               <StatusDot tone={generated ? "ok" : "warn"} />
-              {generated ? "parsed" : "idle"}
+              {generated ? "sample fixture" : "idle"}
             </span>
           </div>
           {generated ? (
@@ -153,12 +153,12 @@ function Generator() {
             </dl>
           ) : (
             <p className="mt-4 text-sm text-muted-foreground">
-              Awaiting instruction. Complete the form and generate.
+              Sample intent hidden. Showing it does not process the entered instruction.
             </p>
           )}
           <div className="mt-6 rounded-md border border-primary/30 bg-primary/5 p-3 text-xs text-foreground/80">
             <span className="font-semibold text-primary">Approval gate:</span> No autonomous
-            physical execution. Mission enters review queue.
+            physical execution. This sample is not generated from your inputs and does not enter a connected review queue.
           </div>
         </Panel>
       </div>
