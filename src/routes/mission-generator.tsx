@@ -158,7 +158,8 @@ function Generator() {
           )}
           <div className="mt-6 rounded-md border border-primary/30 bg-primary/5 p-3 text-xs text-foreground/80">
             <span className="font-semibold text-primary">Approval gate:</span> No autonomous
-            physical execution. This sample is not generated from your inputs and does not enter a connected review queue.
+            physical execution. This sample is not generated from your inputs and does not enter a
+            connected review queue.
           </div>
         </Panel>
       </div>

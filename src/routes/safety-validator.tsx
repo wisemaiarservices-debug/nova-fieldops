@@ -63,7 +63,8 @@ function Safety() {
               Not assessed
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              No mission clearance is issued by this preview. A qualified site operator must independently verify conditions and controls.
+              No mission clearance is issued by this preview. A qualified site operator must
+              independently verify conditions and controls.
             </p>
           </Panel>
           <Panel className="border-l-4 border-l-destructive/70">

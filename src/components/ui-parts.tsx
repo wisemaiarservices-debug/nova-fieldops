@@ -48,9 +48,16 @@ export function Badge({ children }: { children: ReactNode }) {
 export function PageShell({ children }: { children: ReactNode }) {
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
-      <div role="status" aria-label="Demo data notice" className="mb-8 rounded-md border border-yellow-400/40 bg-yellow-400/10 px-4 py-3 text-sm text-foreground/90">
+      <div
+        role="status"
+        aria-label="Demo data notice"
+        className="mb-8 rounded-md border border-yellow-400/40 bg-yellow-400/10 px-4 py-3 text-sm text-foreground/90"
+      >
         <strong className="mr-2 text-yellow-400 tracking-widest">DEMO SCENARIO</strong>
-        <span>Static sample mission, map and safety fixtures only · no robot, field sensor, weather feed or approval service is connected · no mission is executed</span>
+        <span>
+          Static sample mission, map and safety fixtures only · no robot, field sensor, weather feed
+          or approval service is connected · no mission is executed
+        </span>
       </div>
       {children}
     </div>

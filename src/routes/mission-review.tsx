@@ -98,13 +98,22 @@ function Review() {
           <Panel>
             <div className="hud-label">Approval</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Preview only. Approval is not connected to a durable workflow and this mission cannot be dispatched.
+              Preview only. Approval is not connected to a durable workflow and this mission cannot
+              be dispatched.
             </p>
             <div className="mt-3 flex gap-2">
-              <button disabled className="flex-1 cursor-not-allowed rounded-md bg-primary/30 px-4 py-2 text-sm font-semibold text-primary-foreground/60" title="Approval workflow is not connected">
+              <button
+                disabled
+                className="flex-1 cursor-not-allowed rounded-md bg-primary/30 px-4 py-2 text-sm font-semibold text-primary-foreground/60"
+                title="Approval workflow is not connected"
+              >
                 Approval unavailable
               </button>
-              <button disabled className="flex-1 cursor-not-allowed rounded-md border border-border px-4 py-2 text-sm text-muted-foreground" title="Change-request workflow is not connected">
+              <button
+                disabled
+                className="flex-1 cursor-not-allowed rounded-md border border-border px-4 py-2 text-sm text-muted-foreground"
+                title="Change-request workflow is not connected"
+              >
                 Changes unavailable
               </button>
             </div>

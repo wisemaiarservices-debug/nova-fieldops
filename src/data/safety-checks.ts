@@ -23,7 +23,12 @@ export const safetyChecks = [
     tone: "ok",
     note: "Example terrain note; no surveyed terrain data connected",
   },
-  { label: "Human approval", status: "Sample: required", tone: "warn", note: "No approval workflow connected" },
+  {
+    label: "Human approval",
+    status: "Sample: required",
+    tone: "warn",
+    note: "No approval workflow connected",
+  },
   {
     label: "Missing data",
     status: "Sample: attention",

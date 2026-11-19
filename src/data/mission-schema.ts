@@ -15,5 +15,8 @@ export const missionSchemaFields = [
   { field: "constraints", purpose: "Lists limits such as restricted zones or time windows." },
   { field: "priority", purpose: "Captures operator prioritization for routing and review." },
   { field: "approval_required", purpose: "Requires human approval before downstream use." },
-  { field: "execution_mode", purpose: "Marks this example as preview-only; downstream systems must refuse execution." },
+  {
+    field: "execution_mode",
+    purpose: "Marks this example as preview-only; downstream systems must refuse execution.",
+  },
 ] as const;

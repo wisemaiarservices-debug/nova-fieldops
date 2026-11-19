@@ -28,7 +28,10 @@ function Home() {
       <div role="status" aria-label="Demo data notice" className="mx-auto max-w-7xl px-6 pt-6">
         <div className="rounded-md border border-yellow-400/40 bg-yellow-400/10 px-4 py-3 text-sm text-foreground/90">
           <strong className="mr-2 text-yellow-400 tracking-widest">DEMO SCENARIO</strong>
-          <span>Static sample workflow only · no robot, field sensor, weather feed or approval service is connected · no mission is executed</span>
+          <span>
+            Static sample workflow only · no robot, field sensor, weather feed or approval service
+            is connected · no mission is executed
+          </span>
         </div>
       </div>
       <section className="relative overflow-hidden">
@@ -45,7 +48,8 @@ function Home() {
             Mission Planning Preview for Agricultural Robotics
           </p>
           <p className="mt-4 max-w-2xl text-muted-foreground text-lg">
-            Explore a sample workflow for translating field instructions into structured mission intent, review steps and safety constraints.
+            Explore a sample workflow for translating field instructions into structured mission
+            intent, review steps and safety constraints.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -183,7 +187,8 @@ function Home() {
             <div>
               <div className="font-semibold">No autonomous physical execution</div>
               <div className="text-sm text-muted-foreground">
-                Future integrations must independently validate conditions and require explicit operator authorization.
+                Future integrations must independently validate conditions and require explicit
+                operator authorization.
               </div>
             </div>
             <div>

@@ -59,9 +59,9 @@ function Output() {
           <Panel className="border-l-4 border-l-primary">
             <div className="hud-label text-primary">Downstream contract</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              This preview payload is not an execution command. Any future consumer must independently re-check{" "}
-              <code className="text-primary">approval_required</code> and refuse execution if{" "}
-              <code className="text-primary">execution_mode</code> is not{" "}
+              This preview payload is not an execution command. Any future consumer must
+              independently re-check <code className="text-primary">approval_required</code> and
+              refuse execution if <code className="text-primary">execution_mode</code> is not{" "}
               <code className="text-primary">operator_approved</code>.
             </p>
           </Panel>
