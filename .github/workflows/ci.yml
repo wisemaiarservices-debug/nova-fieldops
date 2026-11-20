@@ -45,6 +45,9 @@ jobs:
           if (older) throw new Error('Vulnerable @tanstack/react-start version remains: ' + actual.join('.'));
           console.log('Verified @tanstack/react-start@' + actual.join('.'));
           NODE
+      - name: Preview Bun security remediation plan
+        continue-on-error: true
+        run: bun audit fix --dry-run --json
       - name: Audit production dependencies
         run: bun audit --prod --audit-level=high
       - name: Audit full dependency tree
