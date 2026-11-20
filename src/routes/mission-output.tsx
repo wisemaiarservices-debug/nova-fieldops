@@ -23,8 +23,8 @@ function Output() {
     <PageShell>
       <SectionHeading
         eyebrow="Mission Output"
-        title="Structured export"
-        description="Machine-readable mission payload, exported after operator approval. Designed for integration-ready NOVA OS and partner robot-stack workflows."
+        title="Structured sample payload"
+        description="Static example JSON for schema review only. It has not been approved, exported to a backend, signed, or connected to a robot stack."
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -59,9 +59,9 @@ function Output() {
           <Panel className="border-l-4 border-l-primary">
             <div className="hud-label text-primary">Downstream contract</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Any system consuming this payload should re-check{" "}
-              <code className="text-primary">approval_required</code> and refuse execution if{" "}
-              <code className="text-primary">execution_mode</code> is not{" "}
+              This preview payload is not an execution command. Any future consumer must
+              independently re-check <code className="text-primary">approval_required</code> and
+              refuse execution if <code className="text-primary">execution_mode</code> is not{" "}
               <code className="text-primary">operator_approved</code>.
             </p>
           </Panel>

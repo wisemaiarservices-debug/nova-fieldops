@@ -9,55 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ScenariosRouteImport } from './routes/scenarios'
-import { Route as SafetyValidatorRouteImport } from './routes/safety-validator'
-import { Route as MissionReviewRouteImport } from './routes/mission-review'
-import { Route as MissionOutputRouteImport } from './routes/mission-output'
-import { Route as MissionGeneratorRouteImport } from './routes/mission-generator'
-import { Route as FieldMapRouteImport } from './routes/field-map'
-import { Route as DemoRouteImport } from './routes/demo'
-import { Route as ChallengeFitRouteImport } from './routes/challenge-fit'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ChallengeFitRouteImport } from './routes/challenge-fit'
+import { Route as DemoRouteImport } from './routes/demo'
+import { Route as FieldMapRouteImport } from './routes/field-map'
+import { Route as MissionGeneratorRouteImport } from './routes/mission-generator'
+import { Route as MissionOutputRouteImport } from './routes/mission-output'
+import { Route as MissionReviewRouteImport } from './routes/mission-review'
+import { Route as SafetyValidatorRouteImport } from './routes/safety-validator'
+import { Route as ScenariosRouteImport } from './routes/scenarios'
 
-const ScenariosRoute = ScenariosRouteImport.update({
-  id: '/scenarios',
-  path: '/scenarios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SafetyValidatorRoute = SafetyValidatorRouteImport.update({
-  id: '/safety-validator',
-  path: '/safety-validator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MissionReviewRoute = MissionReviewRouteImport.update({
-  id: '/mission-review',
-  path: '/mission-review',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MissionOutputRoute = MissionOutputRouteImport.update({
-  id: '/mission-output',
-  path: '/mission-output',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MissionGeneratorRoute = MissionGeneratorRouteImport.update({
-  id: '/mission-generator',
-  path: '/mission-generator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FieldMapRoute = FieldMapRouteImport.update({
-  id: '/field-map',
-  path: '/field-map',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoRoute = DemoRouteImport.update({
-  id: '/demo',
-  path: '/demo',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ChallengeFitRoute = ChallengeFitRouteImport.update({
-  id: '/challenge-fit',
-  path: '/challenge-fit',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -65,9 +30,44 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ChallengeFitRoute = ChallengeFitRouteImport.update({
+  id: '/challenge-fit',
+  path: '/challenge-fit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldMapRoute = FieldMapRouteImport.update({
+  id: '/field-map',
+  path: '/field-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MissionGeneratorRoute = MissionGeneratorRouteImport.update({
+  id: '/mission-generator',
+  path: '/mission-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MissionOutputRoute = MissionOutputRouteImport.update({
+  id: '/mission-output',
+  path: '/mission-output',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MissionReviewRoute = MissionReviewRouteImport.update({
+  id: '/mission-review',
+  path: '/mission-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyValidatorRoute = SafetyValidatorRouteImport.update({
+  id: '/safety-validator',
+  path: '/safety-validator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScenariosRoute = ScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -162,60 +162,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/scenarios': {
-      id: '/scenarios'
-      path: '/scenarios'
-      fullPath: '/scenarios'
-      preLoaderRoute: typeof ScenariosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/safety-validator': {
-      id: '/safety-validator'
-      path: '/safety-validator'
-      fullPath: '/safety-validator'
-      preLoaderRoute: typeof SafetyValidatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mission-review': {
-      id: '/mission-review'
-      path: '/mission-review'
-      fullPath: '/mission-review'
-      preLoaderRoute: typeof MissionReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mission-output': {
-      id: '/mission-output'
-      path: '/mission-output'
-      fullPath: '/mission-output'
-      preLoaderRoute: typeof MissionOutputRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mission-generator': {
-      id: '/mission-generator'
-      path: '/mission-generator'
-      fullPath: '/mission-generator'
-      preLoaderRoute: typeof MissionGeneratorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/field-map': {
-      id: '/field-map'
-      path: '/field-map'
-      fullPath: '/field-map'
-      preLoaderRoute: typeof FieldMapRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo': {
-      id: '/demo'
-      path: '/demo'
-      fullPath: '/demo'
-      preLoaderRoute: typeof DemoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/challenge-fit': {
-      id: '/challenge-fit'
-      path: '/challenge-fit'
-      fullPath: '/challenge-fit'
-      preLoaderRoute: typeof ChallengeFitRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -225,11 +176,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/challenge-fit': {
+      id: '/challenge-fit'
+      path: '/challenge-fit'
+      fullPath: '/challenge-fit'
+      preLoaderRoute: typeof ChallengeFitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-map': {
+      id: '/field-map'
+      path: '/field-map'
+      fullPath: '/field-map'
+      preLoaderRoute: typeof FieldMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mission-generator': {
+      id: '/mission-generator'
+      path: '/mission-generator'
+      fullPath: '/mission-generator'
+      preLoaderRoute: typeof MissionGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mission-output': {
+      id: '/mission-output'
+      path: '/mission-output'
+      fullPath: '/mission-output'
+      preLoaderRoute: typeof MissionOutputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mission-review': {
+      id: '/mission-review'
+      path: '/mission-review'
+      fullPath: '/mission-review'
+      preLoaderRoute: typeof MissionReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety-validator': {
+      id: '/safety-validator'
+      path: '/safety-validator'
+      fullPath: '/safety-validator'
+      preLoaderRoute: typeof SafetyValidatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scenarios': {
+      id: '/scenarios'
+      path: '/scenarios'
+      fullPath: '/scenarios'
+      preLoaderRoute: typeof ScenariosRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

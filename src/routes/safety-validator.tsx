@@ -21,8 +21,8 @@ function Safety() {
     <PageShell>
       <SectionHeading
         eyebrow="Safety Validator"
-        title="Pre-execution checks"
-        description="Every mission is checked across environmental, physical, and governance gates. Any unresolved failure blocks approval."
+        title="Safety-check scenario preview"
+        description="Illustrative safety-check matrix only. These sample values are not live checks, sensor readings, a certified assessment or authorization to operate."
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -60,10 +60,11 @@ function Safety() {
           <Panel>
             <div className="hud-label">Overall</div>
             <div className="mt-2 font-display text-3xl font-semibold text-yellow-400">
-              Conditional
+              Not assessed
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Mission may proceed only after operator approval and acknowledgment of warnings.
+              No mission clearance is issued by this preview. A qualified site operator must
+              independently verify conditions and controls.
             </p>
           </Panel>
           <Panel className="border-l-4 border-l-destructive/70">

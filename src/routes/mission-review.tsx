@@ -42,13 +42,13 @@ function Review() {
       <SectionHeading
         eyebrow="Mission Review"
         title="Operator review queue"
-        description="Every mission passes here before approval. Steps, assumptions, and data gaps are made explicit."
+        description="Illustrative mission-review fixture. The steps, timings and assumptions are sample content, not a live robot mission or verified field assessment."
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
         <Panel className="lg:col-span-2">
           <div className="flex items-center justify-between">
-            <div className="hud-label text-primary">Mission steps</div>
+            <div className="hud-label text-primary">Sample mission steps</div>
             <span className="hud-label">MSN-2417 / rover-03</span>
           </div>
           <ol className="mt-4 space-y-2">
@@ -63,10 +63,10 @@ function Review() {
                 <div className="flex-1">
                   <div className="text-sm font-medium">{s}</div>
                   <div className="text-xs text-muted-foreground mt-0.5">
-                    estimated {2 + i} min / safety pre-check complete
+                    sample estimate: {2 + i} min / not safety-validated
                   </div>
                 </div>
-                <StatusDot tone={i === steps.length - 1 ? "info" : "ok"} />
+                <StatusDot tone="info" />
               </li>
             ))}
           </ol>
@@ -98,14 +98,23 @@ function Review() {
           <Panel>
             <div className="hud-label">Approval</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Mission cannot proceed to any robot without operator approval.
+              Preview only. Approval is not connected to a durable workflow and this mission cannot
+              be dispatched.
             </p>
             <div className="mt-3 flex gap-2">
-              <button className="flex-1 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">
-                Approve
+              <button
+                disabled
+                className="flex-1 cursor-not-allowed rounded-md bg-primary/30 px-4 py-2 text-sm font-semibold text-primary-foreground/60"
+                title="Approval workflow is not connected"
+              >
+                Approval unavailable
               </button>
-              <button className="flex-1 rounded-md border border-border px-4 py-2 text-sm">
-                Request changes
+              <button
+                disabled
+                className="flex-1 cursor-not-allowed rounded-md border border-border px-4 py-2 text-sm text-muted-foreground"
+                title="Change-request workflow is not connected"
+              >
+                Changes unavailable
               </button>
             </div>
           </Panel>

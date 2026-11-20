@@ -1,0 +1,61 @@
+name: NOVA FieldOps CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "package.json"
+      - "bun.lock"
+      - ".github/workflows/ci.yml"
+      - "src/**"
+      - "tests/**"
+      - "README.md"
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - name: Install locked dependencies
+        run: bun install --frozen-lockfile
+      - name: Verify patched TanStack Start lock entry
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const lock = readFileSync('bun.lock', 'utf8');
+          const line = lock.split('\n').find((entry) => entry.includes('"@tanstack/react-start": ["@tanstack/react-start@'));
+          const match = line?.match(/@(\d+)\.(\d+)\.(\d+)/);
+          if (!match) throw new Error('Direct @tanstack/react-start package entry missing from bun.lock');
+          const actual = match.slice(1, 4).map(Number);
+          const minimum = [1, 168, 60];
+          const older = actual[0] < minimum[0] ||
+            (actual[0] === minimum[0] && actual[1] < minimum[1]) ||
+            (actual[0] === minimum[0] && actual[1] === minimum[1] && actual[2] < minimum[2]);
+          if (older) throw new Error('Vulnerable @tanstack/react-start version remains: ' + actual.join('.'));
+          console.log('Verified @tanstack/react-start@' + actual.join('.'));
+          NODE
+      - name: Audit production dependencies
+        run: bun audit --prod --audit-level=high
+      - name: Audit full dependency tree
+        run: bun audit
+      - name: Format changed source and regression tests
+        run: |
+          ./node_modules/.bin/prettier --check src/components/ui-parts.tsx src/routes/__root.tsx src/routes/index.tsx src/routes/mission-review.tsx src/routes/safety-validator.tsx src/routes/mission-output.tsx src/routes/mission-generator.tsx src/data/mission-schema.ts src/data/safety-checks.ts tests/preview-boundaries.test.mjs
+      - name: Test preview and safety boundaries
+        run: bun run test
+      - name: Typecheck
+        run: bun run typecheck
+      - name: Lint
+        run: bun run lint
+      - name: Build
+        run: bun run build
