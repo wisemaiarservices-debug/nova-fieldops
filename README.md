@@ -91,3 +91,8 @@ The app pins a compatible patched TanStack release set: `@tanstack/react-start@1
 
 
 The generated route tree is checked in. If TanStack's build-time route generation changes it, commit that generated output together with the source change so the validated source tree and repository state remain reproducible.
+
+
+## Frontend dependency security baseline
+
+The FieldOps preview uses a coordinated patched TanStack release set with `@tanstack/react-start@1.168.60`, `@tanstack/react-router@1.170.41`, and `@tanstack/router-plugin@1.168.42`. The Bun lockfile also pins `zod@4.6.7` and `minimatch@11.0.1` to address the remaining high/moderate advisories; Bun resolved other vulnerable transitive packages to patched releases. CI now uses `bun install --frozen-lockfile`, runs mandatory production and full `bun audit`, then tests, TypeScript, lint, formatting check and production build. Both audits report no vulnerabilities across the production and full dependency graph. This is preview-branch CI evidence, not a production deployment or independent security review.
